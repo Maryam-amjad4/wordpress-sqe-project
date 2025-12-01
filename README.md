@@ -26,6 +26,7 @@ Comprehensive Quality Engineering project implementing CI/CD pipeline for WordPr
    ```bash
    docker-compose up -d
    ```
+   **Note:** The `wp-content` folder will be automatically created when WordPress runs for the first time. This is normal and expected.
 
 3. **Access WordPress:**
    - WordPress: http://localhost:8082
