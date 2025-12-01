@@ -1,0 +1,64 @@
+name: CI/CD Pipeline - Source & Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Stage
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.0'
+        extensions: mbstring, xml, curl, zip, gd, mysql
+        coverage: none
+        
+    - name: Validate composer.json
+      run: composer validate --strict
+      
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress --no-interaction
+      
+    - name: Check PHP syntax
+      run: |
+        find . -name "*.php" -not -path "./vendor/*" -not -path "./wp-content/*" -exec php -l {} \;
+        
+    - name: Build Docker image
+      run: |
+        docker build -t wordpress-sqe:latest -f Dockerfile .
+      continue-on-error: true
+      
+    - name: Build Docker Compose
+      run: |
+        docker-compose config
+      continue-on-error: true
+      
+    - name: Create build artifacts
+      run: |
+        mkdir -p artifacts
+        echo "Build completed at $(date)" > artifacts/build-info.txt
+        echo "PHP Version: $(php -v)" >> artifacts/build-info.txt
+        echo "Composer Version: $(composer --version)" >> artifacts/build-info.txt
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: artifacts/
+        retention-days: 7
+        
+    - name: Build summary
+      run: |
+        echo "✅ Build stage completed successfully"
+        echo "📦 Artifacts created and uploaded"
+
