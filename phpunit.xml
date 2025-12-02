@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         verbose="true"
+         stopOnFailure="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         backupGlobals="false">
+    
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <directory suffix="Test.php">./tests/unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests">
+            <directory suffix="Test.php">./tests/integration</directory>
+        </testsuite>
+        <testsuite name="All Tests">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    
+    <coverage>
+        <include>
+            <directory suffix=".php">./wp-content</directory>
+        </include>
+        <exclude>
+            <directory>./wp-content/themes</directory>
+            <directory>./wp-content/plugins/akismet</directory>
+            <directory>./vendor</directory>
+            <directory>./tests</directory>
+        </exclude>
+    </coverage>
+    
+    <php>
+        <env name="WP_TESTS_DB_NAME" value="wordpress_test"/>
+        <env name="WP_TESTS_DB_USER" value="wordpress"/>
+        <env name="WP_TESTS_DB_PASSWORD" value="wordpress"/>
+        <env name="WP_TESTS_DB_HOST" value="localhost"/>
+        <env name="WP_TESTS_TABLE_PREFIX" value="wp_test_"/>
+    </php>
+    
+</phpunit>
+

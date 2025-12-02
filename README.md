@@ -89,12 +89,12 @@ The CI/CD pipeline is configured using GitHub Actions and includes:
 
 ## Documentation
 
-- [Project Analysis](./PROJECT_ANALYSIS.md)
-- [Project Selection Analysis](./PROJECT_SELECTION_ANALYSIS.md)
+- [Phase 1- environment setup]()
+- [Phase 2- test plan document]()
 - [WordPress Project Roadmap](./WORDPRESS_PROJECT_ROADMAP.md)
 
 ## Team Members
-- [Add team member names]
+- [Ayesha Khan, Zainab Naeem, Maryam Farooq]
 
 ## License
 This project is for educational purposes.

@@ -62,6 +62,6 @@ jobs:
         
     - name: Build summary
       run: |
-        echo "✅ Build stage completed successfully"
-        echo "📦 Artifacts created and uploaded"
+        echo " Build stage completed successfully"
+        echo " Artifacts created and uploaded"
 

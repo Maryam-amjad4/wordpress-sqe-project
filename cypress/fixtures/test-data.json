@@ -1,0 +1,40 @@
+{
+  "users": {
+    "admin": {
+      "username": "admin",
+      "password": "admin",
+      "role": "administrator"
+    },
+    "editor": {
+      "username": "editor",
+      "password": "editor123",
+      "role": "editor"
+    },
+    "author": {
+      "username": "author",
+      "password": "author123",
+      "role": "author"
+    }
+  },
+  "posts": {
+    "samplePost": {
+      "title": "Test Post Title",
+      "content": "This is a sample post content for testing purposes.",
+      "excerpt": "This is a sample excerpt",
+      "status": "publish"
+    },
+    "draftPost": {
+      "title": "Draft Post Title",
+      "content": "This is a draft post content.",
+      "status": "draft"
+    }
+  },
+  "pages": {
+    "samplePage": {
+      "title": "Test Page Title",
+      "content": "This is a sample page content for testing purposes.",
+      "status": "publish"
+    }
+  }
+}
+
