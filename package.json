@@ -8,9 +8,8 @@
     "test:headless": "cypress run --headless"
   },
   "devDependencies": {
-    "cypress": "^13.0.0"
+    "cypress": "^13.17.0"
   },
   "author": "",
   "license": "ISC"
 }
-

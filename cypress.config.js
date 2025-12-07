@@ -21,8 +21,8 @@ module.exports = defineConfig({
   },
   env: {
     // Test user credentials - update these to match your WordPress setup
-    wpAdminUsername: 'admin',
-    wpAdminPassword: 'admin', // Change this to your actual admin password
+    wpAdminUsername: 'sqeproject',
+    wpAdminPassword: '12345678ABC1', // Change this to your actual admin password
     wpTestUser: 'testuser',
     wpTestPassword: 'testpass123'
   }
